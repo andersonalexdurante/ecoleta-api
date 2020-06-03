@@ -9,6 +9,9 @@ const connection = knex({
     migrations: {
         directory: path.resolve(__dirname, '/migrations')
     },
+    seeds: {
+        directory: path.resolve(__dirname, 'src', 'database', 'seeds')
+    },
     useNullAsDefault: true
 })
 

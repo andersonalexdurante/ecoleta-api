@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev src/server.ts",
-    "migrate:latest": "knex migrate:latest --knexfile knexfile.ts migrate:latest"
+    "dev": "ts-node-dev --ignore-watch node_modules src/server.ts",
+    "seed:run": "knex --knexfile knexfile.ts seed:run",
+    "migrate:latest": "knex --knexfile knexfile.ts migrate:latest"
   },
   "author": "",
   "license": "ISC",

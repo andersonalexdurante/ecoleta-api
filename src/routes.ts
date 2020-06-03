@@ -8,6 +8,7 @@ const itemController = new ItemController()
 
 routes.get('/items', itemController.index)
 
+routes.get('/points', pointController.index)
 routes.post('/points', pointController.create)
 routes.get('/points/:id', pointController.show)
 

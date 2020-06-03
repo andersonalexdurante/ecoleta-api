@@ -3,6 +3,28 @@ import knex from '../database/connection'
 
 export default class PointController {
 
+    async index(req: Request, res: Response) {
+        try {
+            
+            const { city, uf, items } = req.query
+            
+            const parsedItems = String(items).split(',').map(item => Number(item.trim()))
+
+            const points = await knex('points')
+            .join('point_items', 'point_items.point_id', '=', 'points.id')
+            .whereIn('point_items.item_id', parsedItems)
+            .where('city', String(city))
+            .where('uf', String(uf))
+            .distinct()
+            .select('points.*')
+
+            return res.json(points)
+            
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     async create(req: Request, res: Response) {
         try {
             const { name, email, whatsapp, latitude, longitude, city, uf, items } = req.body

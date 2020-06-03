@@ -30,7 +30,7 @@ export default class PointController {
             const { name, email, whatsapp, latitude, longitude, city, uf, items } = req.body
     
             const point = {
-                image: 'image-fake',
+                image: 'https://images.unsplash.com/photo-1488928741225-2aaf732c96cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60',
                 name, 
                 email, 
                 whatsapp, 
